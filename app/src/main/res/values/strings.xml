@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">AndroidPoke</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quiz_title">ポケモンシルエットクイズ</string>
+    <string name="start_button">スタート</string>
+    <string name="select_generation">世代を選択</string>
+    <string name="count">%d問目</string>
+    <string name="back">タイトルへ戻る</string>
+    <string name="score">%d / 10</string>
+    <string name="time">%d</string>
+    <string name="input">ポケモンの名前を入力</string>
+    <string name="answer">回答</string>
+    <string name="toast_miss">正解は%s！</string>
 </resources>

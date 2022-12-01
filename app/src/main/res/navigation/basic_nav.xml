@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/basic_nav"
+    android:id="@+id/nav"
     app:startDestination="@id/titleFragment">
 
     <fragment
@@ -11,26 +11,45 @@
         android:label="fragment_title"
         tools:layout="@layout/fragment_title" >
         <action
-            android:id="@+id/action_titleFragment_to_generationFragment"
-            app:destination="@id/generationFragment" />
+            android:id="@+id/title_to_select"
+            app:destination="@id/selectGenerationFragment" />
     </fragment>
     <fragment
-        android:id="@+id/generationFragment"
+        android:id="@+id/selectGenerationFragment"
         android:name="jp.ac.it_college.std.s21023.androidpoke.GenerationFragment"
-        android:label="fragment_generation"
+        android:label="fragment_select_generation"
         tools:layout="@layout/fragment_generation" >
         <action
-            android:id="@+id/action_generationFragment_to_quizFragment"
+            android:id="@+id/generation_to_quiz"
             app:destination="@id/quizFragment" />
+        <argument
+            android:name="hardmode"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
         android:name="jp.ac.it_college.std.s21023.androidpoke.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz" >
+        <argument android:name="idList"
+            app:argType="integer[]" />
+        <argument
+            android:name="qCount"
+            app:argType="integer"
+            android:defaultValue="1" />
         <action
-            android:id="@+id/action_quizFragment_to_resultFragment"
+            android:id="@+id/quizToQuiz"
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/quizToResult"
             app:destination="@id/resultFragment" />
+        <argument
+            android:name="score"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="hardmode"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -38,7 +57,13 @@
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action
-            android:id="@+id/action_resultFragment_to_generationFragment"
-            app:destination="@id/generationFragment" />
+            android:id="@+id/resultToTitle"
+            app:destination="@id/titleFragment" />
+        <argument
+            android:name="score"
+            app:argType="integer" />
+        <argument
+            android:name="hardmode"
+            app:argType="boolean" />
     </fragment>
 </navigation>
